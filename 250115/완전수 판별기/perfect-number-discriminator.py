@@ -1,8 +1,8 @@
 n =  int(input())
-nums = []
+hap
 
 for i in range(1,n):
     if (n%i == 0):
-        nums.append(i)
+        hap += i
 
-print('P' if sum(nums) == n else 'N')
+print('P' if hap == n else 'N')
