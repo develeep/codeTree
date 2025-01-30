@@ -3,7 +3,7 @@ n1 = list(map(int,input().split()))
 n2 = list(map(int,input().split()))
 result = 'No'
 
-for i in range(idx1-idx2):
+for i in range(idx1-idx2+1):
     if result == 'Yes':
         break
     if n1[i] == n2[0]:
