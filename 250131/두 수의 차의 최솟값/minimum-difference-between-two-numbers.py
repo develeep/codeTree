@@ -9,7 +9,7 @@ for i in range(n-1):
     if x == 1:
         result = x
         break
-    if x > result:
+    if x < result:
         result = x
     
 print(result)
