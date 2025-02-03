@@ -1,3 +1,1 @@
-n = input()
-for i in n:
-    print(i)
+print(*[i for i in input()], sep = '\n')
