@@ -8,8 +8,10 @@ for _ in range(N):
 
 max_result = float(0)
 max_index = k
-for i in range(k,102-k):
-    c = sum(candy[i-k:i+k+1])
+for i in range(k,102):
+    left = max(0,i-k)
+    right = min(102,i+k+1)
+    c = sum(candy[left:right])
     max_result = max(max_result,c)
 
 print(max_result)
