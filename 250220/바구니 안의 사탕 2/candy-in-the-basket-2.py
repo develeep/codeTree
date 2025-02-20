@@ -6,7 +6,7 @@ for _ in range(N):
     candy[p] += c
 # Write your code here!
 
-max_result = float('-inf')
+max_result = float(0)
 max_index = k
 for i in range(k,102-k):
     c = sum(candy[i-k:i+k+1])
