@@ -8,7 +8,7 @@ for _ in range(N):
 
 max_result = float(0)
 max_index = k
-if k >= N:
+if k >= 101:
     max_result = sum(candy)
 else:
     for i in range(k,102):
