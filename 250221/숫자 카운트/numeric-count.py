@@ -11,7 +11,7 @@ for A in range(111,1000):
     a1 = (A//100) % 10
     a2 = (A//10) % 10
     a3 = (A//1) % 10
-    if a1 == a2 == a3:
+    if a1 == a2 or a2 == a3 or a1 == a3:
         continue
     if a1 == 0 or a2 == 0 or a3 == 0:
         continue
@@ -33,6 +33,7 @@ for A in range(111,1000):
             break
 
     if flag:
+        # print(a1,a2,a3)
         cnt += 1
 
 print(cnt)
