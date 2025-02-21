@@ -16,7 +16,6 @@ for i in range(N):
         cnt += 1
         total += p            
     max_cnt = max(cnt,max_cnt)
-    print()
     P[i] *= 2
     if cnt == N:
         break
