@@ -2,4 +2,5 @@ def print_str(n):
     for i in range(n):
         print('12345^&*()_')
 
-print_str(4)
+n = int(input())
+print_str(n)
