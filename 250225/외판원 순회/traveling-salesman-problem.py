@@ -23,9 +23,7 @@
 # find_min(0,1,0)
 
 # print(min_result)
-import sys
 
-INT_MAX = sys.maxsize
 n = int(input())
 cost = [
     list(map(int, input().split()))
@@ -34,7 +32,7 @@ cost = [
 visited = [False] * n
 picked = []
 
-ans = INT_MAX
+ans = float('inf')
 
 
 # 지금까지 방문한 지점의 수를 cnt라 했을 때
