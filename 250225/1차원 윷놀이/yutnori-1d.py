@@ -6,7 +6,7 @@ visited = [0]*n
 max_result = 0
 def find_max(arr):
     global max_result
-    if max_result == k:
+    if max_result >= k:
         return
     if len(arr) == n:
         cnt = 0
@@ -19,7 +19,7 @@ def find_max(arr):
         max_result = max(max_result,cnt)
         return
     for i in range(n):
-        if max_result == k:
+        if max_result >= k:
             break
         if visited[i] == 0:
             visited[i] = 1
