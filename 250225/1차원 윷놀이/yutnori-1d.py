@@ -4,7 +4,8 @@ nums = list(map(int, input().split()))
 # Write your code here!
 visited = [0]*n
 max_result = 0
-max_cnt = sum(nums) // (m-1)
+m -= 1
+max_cnt = sum(nums) // m
 
 def find_max(arr,m_cnt,move_cnt):
     global max_result
@@ -21,10 +22,10 @@ def find_max(arr,m_cnt,move_cnt):
         if visited[i] == 0:
             visited[i] = 1
             if move_cnt >= m:
-                find_max(arr + [nums[i]], m_cnt+1, 1 + nums[i])
+                find_max(arr + [nums[i]], m_cnt+1, nums[i])
             else:
                 find_max(arr + [nums[i]], m_cnt, move_cnt + nums[i])
             visited[i] = 0
 
-find_max([],0,1)
-print(max_result)
+find_max([],0,0)
+print(max_result if k > max_result else k)
