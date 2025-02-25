@@ -16,7 +16,7 @@ def find_max(idx,cnt,val):
 
     find_max(idx+1,cnt+1,val^A[idx])
 
-max_result = float('-inf')
+max_result = 0
 find_max(0,0,0)
 
 print(max_result)
