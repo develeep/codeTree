@@ -9,6 +9,8 @@ def find_min(idx,cnt,cost):
         min_result = min(min_result,cost)
     
     for i in range(1,n):
+        if A[idx][i] == 0:
+            continue
         if visited[i] == 0:
             visited[i] = 1
             find_min(i,cnt+1,cost+A[idx][i])
