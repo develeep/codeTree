@@ -5,6 +5,8 @@ A = [list(map(int, input().split())) for _ in range(n)]
 def find_min(idx,cnt,cost):
     if cnt == n:
         global min_result
+        if A[idx][0] == 0:
+            return
         cost += A[idx][0]
         min_result = min(min_result,cost)
     
