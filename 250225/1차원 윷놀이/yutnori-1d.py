@@ -16,11 +16,19 @@ def find_max(idx):
         return
     move = nums[idx]
     for i in range(k):
-        if positions[i] < m:
-            positions[i] += move
-            find_max(idx+1)
-            positions[i] -= move
-    
+        if positions[i] > m:
+            continue
+        
+        positions[i] += move
+        find_max(idx+1)
+        positions[i] -= move
+    else:
+        cnt = 0
+        for pos in positions:
+            if pos >= m:
+                cnt += 1
+        max_result = max(max_result,cnt)
+        return
         
 find_max(0)
 print(max_result)
