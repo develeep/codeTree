@@ -4,9 +4,11 @@ nums = list(map(int, input().split()))
 # Write your code here!
 visited = [0]*n
 max_result = 0
+max_cnt = sum(nums) // (m-1)
+
 def find_max(arr,m_cnt,move_cnt):
     global max_result
-    if max_result >= k:
+    if max_result >= k or max_result == max_cnt:
         return
     if len(arr) == n:
         if move_cnt >= m:
