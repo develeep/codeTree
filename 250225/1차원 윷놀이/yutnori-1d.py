@@ -2,34 +2,29 @@ n, m, k = map(int, input().split())
 nums = list(map(int, input().split()))
 
 # Write your code here!
-positions = [1]*k
-
+visited = [0]*n
 max_result = 0
-def find_max(idx):
+def find_max(arr):
     global max_result
     if max_result == k:
-         return
-    if idx == n:
+        return
+    if len(arr) == n:
         cnt = 0
-        for pos in positions:
-            if pos >= m:
+        move_cnt = 1
+        for move in arr:
+            move_cnt += move
+            if move_cnt >= m:
                 cnt += 1
+                move_cnt = 1
         max_result = max(max_result,cnt)
         return
+    for i in range(n):
+        if max_result == k:
+            break
+        if visited[i] == 0:
+            visited[i] = 1
+            find_max(arr + [nums[i]])
+            visited[i] = 0
 
-    flag = 0
-    move = nums[idx]
-    for i in range(k):
-        if positions[i] > m:
-            continue
-        flag = 1       
-        positions[i] += move
-        find_max(idx+1)
-        positions[i] -= move
-        
-    if flag == 0:
-        max_result = k
-        return
-        
-find_max(0)
+find_max([])
 print(max_result)
