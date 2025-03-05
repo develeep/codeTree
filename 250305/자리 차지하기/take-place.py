@@ -11,7 +11,7 @@ for i in range(m):
         if len(a) == 0:
             break
         user = a.pop()
-        if i+1 <= user:
+        if i < user:
             used[i] = 1
             break
 
