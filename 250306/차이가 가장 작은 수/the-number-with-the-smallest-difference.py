@@ -6,8 +6,7 @@ arr.sort()
 res = float('inf')
 for i in range(n-1):
     for j in range(1, n):
-        if arr[j] > (arr[i] + m):
-            res = min(res, arr[j] - arr[i])
+        if abs(arr[i] - arr[j]) >= m:
+            res = min(res,abs(arr[i]-arr[j]))
             break
-
 print(res if res < float('inf') else -1)
