@@ -10,4 +10,4 @@ for i in range(n-1):
             res = min(res, arr[j] - arr[i])
             break
 
-print(res)
+print(res if res < float('inf') else -1)
