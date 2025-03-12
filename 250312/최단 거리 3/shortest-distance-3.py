@@ -13,7 +13,7 @@ def bfs(start):
             if min_depth[neighbor] > m:
                 min_depth[neighbor] = m
                 heapq.heappush(q, (m, neighbor))
-    return False
+    return depth
 
 
 n, m = map(int, input().split())
