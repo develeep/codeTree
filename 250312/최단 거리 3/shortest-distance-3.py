@@ -1,7 +1,6 @@
 import heapq
 def bfs(start):
     q = [(0, start)]
-    visited = [0]*(n+1)
     min_depth = [100000*n]*(n+1)
     min_depth[start] = 0
     while q:
