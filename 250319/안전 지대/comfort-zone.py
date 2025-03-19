@@ -24,7 +24,7 @@ def dfs(x,y):
         dfs(nx,ny)
 
 
-res = 0
+res = 1
 res_cnt = 0
 for i in range(1,max_height+1):
     fill(i)
