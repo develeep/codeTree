@@ -13,15 +13,19 @@ def fill(k):
                 safe[i][j] = 0
 
 dxy = ((0,1),(0,-1),(1,0),(-1,0))
-def dfs(x,y):
-    visited[x][y] = 1
-    for dx,dy in dxy:
-        nx,ny = x+dx, y+dy
-        if not(0<=nx<n and 0<=ny<m):
-            continue
-        if visited[nx][ny] or not safe[nx][ny]:
-            continue
-        dfs(nx,ny)
+def bfs(x,y):
+    stack = [(x,y)]
+    while stack:
+        x,y = stack.pop()
+        for dx,dy in dxy:
+            nx,ny = x+dx, y+dy
+            if not(0<=nx<n and 0<=ny<m):
+                continue
+            if visited[nx][ny] or not safe[nx][ny]:
+                continue
+            visited[nx][ny] = 1
+            stack.append((nx,ny))
+    
 
 
 res = 1
@@ -34,7 +38,7 @@ for i in range(1,max_height+1):
         for y in range(m):
             if safe[x][y] and not visited[x][y]:
                 cnt += 1
-                dfs(x,y)
+                bfs(x,y)
     if cnt > res_cnt:
         res_cnt = cnt
         res = i
