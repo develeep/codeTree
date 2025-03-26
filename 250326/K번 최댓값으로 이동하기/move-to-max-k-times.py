@@ -33,7 +33,7 @@ def bfs(x,y):
                 if res_x > nx:
                     res_x, res_y = nx,ny
                 elif res_x == nx and res_y > ny:
-                    res_x, res_y = nx,ny
+                    res_y = ny
             
             visited[nx][ny] = 1
             q.append((nx,ny))
