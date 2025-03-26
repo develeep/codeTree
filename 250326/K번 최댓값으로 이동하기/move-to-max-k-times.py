@@ -10,10 +10,11 @@ def bfs(x,y):
     max_num = grid[x][y]
     q = deque()
     q.append((x,y))
-    res_x,res_y = 0,0
-    res = 0
     visited = [[0]*n for _ in range(n)]
     visited[x][y] = 1
+
+    res_x,res_y = 0,0
+    res = 0
     while q:
         x,y = q.popleft()
         for dx,dy in dxy:
@@ -28,7 +29,7 @@ def bfs(x,y):
                 res_x, res_y = nx,ny
                 res = grid[nx][ny]
             
-            if res == grid[nx][ny]:
+            elif res == grid[nx][ny]:
                 if res_x > nx:
                     res_x, res_y = nx,ny
                 elif res_x == nx and res_y > ny:
@@ -41,7 +42,6 @@ def bfs(x,y):
 res_x, res_y = r-1,c-1
 for _ in range(k):
     rx, ry = bfs(res_x,res_y)
-
     if rx == ry == 0:
         break
     res_x,res_y = rx,ry
