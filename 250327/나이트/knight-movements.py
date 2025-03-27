@@ -24,4 +24,4 @@ def bfs(x,y):
             visited[nx][ny] = 1
             q.append((nx,ny,depth + 1))
     return -1
-print(bfs(r1-1,c1-1))
+print(bfs(r1-1,c1-1) if (r1,c1) != (r2,c2) else 0)
