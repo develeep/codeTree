@@ -18,20 +18,18 @@ def find_p(v):
 
 nodes = list(range(n+1))
 rank = [1]*(n+1)
-
 for op, *nums in operations:
     if op == "x":
         pa = find_p(nums[0])
         pb = find_p(nums[1])
         if pa == pb:
             continue
-        if pa < pb:
+        if rank[pa] > rank[pb]:
             nodes[pb] = pa
+            rank[pa] += rank[pb]
         else:
             nodes[pa] = pb
+            rank[pb] += rank[pa]
     else:
-        cnt = 0
-        for node in nodes:
-            if node == nodes[nums[0]]:
-                cnt += 1 
-        print(cnt)
+        pa = find_p(nums[0])
+        print(rank[pa])
