@@ -25,21 +25,13 @@ for op, *nums in operations:
         pb = find_p(nums[1])
         if pa == pb:
             continue
-        if rank[pa] > rank[pb]:
+        if pa < pb:
             nodes[pb] = pa
-        elif rank[pa] == rank[pb]:
-            if pa < pb:
-                nodes[pb] = pa
-            else:
-                nodes[pa] = pb
         else:
             nodes[pa] = pb
-
     else:
-        pa = find_p(nums[0])
         cnt = 0
         for node in nodes:
-            pb = find_p(node)
-            if pa == pb:
+            if node == nodes[nums[0]]:
                 cnt += 1 
         print(cnt)
