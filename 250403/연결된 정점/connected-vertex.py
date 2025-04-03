@@ -11,25 +11,35 @@ for _ in range(m):
         operations.append((op, a))
 
 # Please write your code here.
-def count_node(num):
-    cnt = 1
-    visited = [0]*(n+1)
-    visited[num] = 1
-    stack = [num]
-    while stack:
-        num = stack.pop()
-        for neighbor in nodes[num]:
-            if visited[neighbor]:
-                continue
-            visited[neighbor] = 1
-            stack.append(neighbor)
-            cnt += 1
-    return cnt
+def find_p(v):
+    if v != nodes[v]:
+        nodes[v] = find_p(nodes[v])
+    return nodes[v]
 
-nodes = [[] for _ in range(n+1)]
+nodes = list(range(n+1))
+rank = [1]*(n+1)
+
 for op, *nums in operations:
     if op == "x":
-        nodes[nums[0]].append(nums[1])
-        nodes[nums[1]].append(nums[0])
+        pa = find_p(nums[0])
+        pb = find_p(nums[1])
+        if pa == pb:
+            continue
+        if rank[pa] > rank[pb]:
+            nodes[pb] = pa
+        elif rank[pa] == rank[pb]:
+            if pa < pb:
+                nodes[pb] = pa
+            else:
+                nodes[pa] = pb
+        else:
+            nodes[pa] = pb
+
     else:
-        print(count_node(nums[0]))        
+        pa = find_p(nums[0])
+        cnt = 0
+        for node in nodes:
+            pb = find_p(node)
+            if pa == pb:
+                cnt += 1 
+        print(cnt)
