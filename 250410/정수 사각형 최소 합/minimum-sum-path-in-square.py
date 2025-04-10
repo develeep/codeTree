@@ -5,19 +5,23 @@ grid = [list(map(int, input().split())) for _ in range(n)]
 DP = [[float('inf')] * n for _ in range(n)]
 
 import heapq
-
-q = [(0,n-1,grid[0][n-1])]
-DP[0][n-1] = grid[0][n-1]
 dxy = ((1,0),(0,-1))
-while q:
-    x,y,m = heapq.heappop(q)
-    DP[x][y] = m
-    for dx, dy in dxy:
-        nx,ny = x+dx,y+dy
-        if not(0<=nx<n and 0<=ny<n):
-            continue
-        if DP[nx][ny] <= m + grid[nx][ny]:
-            continue
-        heapq.heappush(q,(nx,ny,m+grid[nx][ny]))
+D = [[float('inf')]*n for _ in range(n)]
 
-print(DP[n-1][0])
+def f(x,y):
+    q = [(grid[x][y],x,y)]
+    while q:
+        m,x,y = heapq.heappop(q)
+        for dx,dy in dxy:
+            nx,ny = x+dx, y+dy
+
+            if (nx,ny) == (n-1,0):
+                return m + grid[nx][ny]
+            if not(0<=nx<n and 0<=ny<n):
+                continue
+            move = m + grid[nx][ny]
+            if move < D[nx][ny]:
+                D[nx][ny] = move
+                heapq.heappush(q, (move,nx,ny))
+
+print(f(0,n-1))
