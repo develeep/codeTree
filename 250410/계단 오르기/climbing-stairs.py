@@ -10,4 +10,4 @@ while i < n:
     dp[i] = dp[i-2] + dp[i-3]
     i+= 1
 
-print(dp[n-1])
+print(dp[n-1]%10007)
